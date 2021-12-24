@@ -12,6 +12,7 @@ module.exports = class GuildBanAdd extends Event {
 
         if (data.logsChannel) {
             let channel = await ban.guild.channels.fetch(data.logsChannel);
+            await ban.user.ban();
             if (channel) {
                     let emb = new MessageEmbed()
                         .setColor("#e15050")
