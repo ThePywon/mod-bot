@@ -12,6 +12,7 @@ module.exports = class GuildBanRemove extends Event {
 
         if (data.logsChannel) {
             let channel = await ban.guild.channels.fetch(data.logsChannel);
+            await ban.guild.members.unban(ban.user.id);
             if (channel) {
                 let emb = new MessageEmbed()
                     .setColor("#70ec46")
